@@ -1,22 +1,28 @@
 <?php
+require_once "./../app/classes/VehicleManager.php";
+$vehicleManager= new VehicleManager('','','','');
+$vehicles= $vehicleManager->getVehicles();
+
 include './views/header.php';
 ?>
 <div class="container my-4">
     <h1>Vehicle Listing</h1>
     <a href="./../public/views/add.php" class="btn btn-success mb-4">Add Vehicle</a>
     <div class="row">
+        <?php foreach ($vehicles as $id=>$vehicle):?>
         <div class="col-md-4">
             <div class="card">
-                <img src="" class="card-img-top" style="height:200px; object-fit: cover;" alt="Image">
+                <img src="<?= $vehicle['image'] ?>" class="card-img-top" style="height:200px; object-fit: cover;" alt="Image">
                 <div class="card-body">
-                    <h5 class="card-title">Vehicle Title</h5>
-                    <p class="card-text">Type:</p>
-                    <p class="card-text">Price: $</p>
-                    <a href="./public/views/details.php?id=" class="btn btn-primary">Edit</a>
-                    <a href="./public/views/details.php?id=" class="btn btn-danger">Delete</a>
+                    <h5 class="card-title">Vehicle Title <?= $vehicle['name'] ?></h5>
+                    <p class="card-text">Type: <? $vehicle['type'] ?></p>
+                    <p class="card-text">Price: $ <?= $vehicle['price']?></p>
+                    <a href="./public/views/details.php?id=<?= $id ?>" class="btn btn-primary">Edit</a>
+                    <a href="./public/views/details.php?id=<?= $id ?>" class="btn btn-danger">Delete</a>
                 </div>
             </div>
         </div>
+        <?php endforeach;?>
     </div>
 </div>
 
