@@ -17,8 +17,8 @@ include './views/header.php';
                     <h5 class="card-title">Vehicle Title <?= $vehicle['name'] ?></h5>
                     <p class="card-text">Type: <? $vehicle['type'] ?></p>
                     <p class="card-text">Price: $ <?= $vehicle['price']?></p>
-                    <a href="./public/views/details.php?id=<?= $id ?>" class="btn btn-primary">Edit</a>
-                    <a href="./public/views/details.php?id=<?= $id ?>" class="btn btn-danger">Delete</a>
+                    <a href="./views/edit.php?id=<?= $id ?>" class="btn btn-primary">Edit</a>
+                    <a href="./views/delete.php?id=<?= $id ?>" class="btn btn-danger">Delete</a>
                 </div>
             </div>
         </div>
